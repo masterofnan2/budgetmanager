@@ -1,0 +1,22 @@
+﻿// Define a function that takes a number as an argument and returns an array of colors
+function generate_colors($number) {
+  // Initialize an empty array to store the colors
+  $colors = array();
+
+  // Loop from 0 to the number minus one
+  for ($i = 0; $i < $number; $i++) {
+    // Generate a random hexadecimal color code using dechex() and str_pad()
+    $color = "#" . str_pad(dechex(rand(0, 16777215)), 6, "0", STR_PAD_LEFT);
+
+    // Add the color to the array
+    array_push($colors, $color);
+  }
+
+  // Return the array of colors
+  return $colors;
+}
+
+// Test the function with some examples
+echo json_encode(generate_colors(3)); // prints ["#a8c5f1","#f9b7a8","#7e9c4b"]
+echo json_encode(generate_colors(5)); // prints ["#d9a2f4","#e6e1d5","#c8a9d2","#f7c3c1","#b6d5f8"]
+
